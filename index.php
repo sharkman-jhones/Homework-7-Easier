@@ -1,0 +1,1 @@
+<?php include_once("Homework-7-Easier/index.html"); ?>

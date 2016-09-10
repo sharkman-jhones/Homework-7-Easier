@@ -25,10 +25,15 @@
                             <th>Frequency (min)</th>
                             <th>Next Arrival</th>
                             <th>Minutes Away</th>
+                            <th style="color:red"><small><small>Remove</small></small></th>
+                        </tr>
+
+                        <tr>
+                        
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -41,31 +46,33 @@
                 <h3 class="panel-title">Add a Train</h3>
             </div>
             <div class="panel-body">
-				<form>
-					<div class="form-group">
-						<label for="trainName">Train Name</label>
-						<input type="text" class="form-control" id="trainName">
-					</div>
-					<div class="form-group">
-					<label for="destination">Destination</label>
-						<input type="text" class="form-control" id="destination">						
-					</div>
-					<div class="form-group">
-					<label for="freqMin">Frequency (min)</label>
-						<input type="number" class="form-control" id="freqMin">
-					</div>
+                <form>
+                    <div class="form-group">
+                        <label for="trainName">Train Name</label>
+                        <input type="text" class="form-control" id="trainName">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination">
+                    </div>
+                    <div class="form-group">
+                        <label for="freqMin">Frequency (min)</label>
+                        <input type="number" class="form-control" id="freqMin">
+                    </div>
 
-					<div class="form-group">
-						<label for="nextArrive">Next Arrival</label>
-						<input type="time" class="form-control" name="nextArrive">
-					</div>
+                    <div class="form-group">
+                        <label for="nextArrive">Next Arrival</label>
+                        <input type="time" class="form-control" id="nextArrive">
+                    </div>
 
-					<div class="form-group">
-						<label for="minAway">Minutes Away</label>
-						<input type="number" class="form-control" id="minAway">
-					</div>
+                    <div class="form-group">
+                        <label for="minAway">Minutes Away</label>
+                        <input type="number" class="form-control" id="minAway">
+                    </div>
 
-				</form>
+                    <button class="btn btn-primary" type="submit" id="submitButton">Submit</button>
+
+                </form>
             </div>
         </div>
     </div>
@@ -74,6 +81,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
     <script src="assets/javascript/jquery-3.1.0.min.js"></script>
+    <script src="assets/javascript/moment.js"></script>
     <script src="assets/javascript/program.js"></script>
 </body>
 

@@ -12,46 +12,53 @@ var database = firebase.database();
 
 $('#submitButton').click(function(){
 	var trainName = $('#trainName').val().trim();
-	//console.log(trainName);
-	//console.log(typeof trainName);
+	console.log(trainName);
+	console.log(typeof trainName);
 	var destination = $('#destination').val().trim();
-	//console.log(destination);
-	//console.log(typeof destination);
+	console.log(destination);
+	console.log(typeof destination);
 	var freqMin = parseInt($('#freqMin').val(), 10);
-	//console.log(freqMin);
-	//console.log(typeof freqMin);
-	var nextArrive = $('#nextArrive').val();
-	console.log(nextArrive);
+	console.log(freqMin);
+	console.log(typeof freqMin);
+	//var nextArrive = moment($('#nextArrive').val(), 'H HH');
+	//console.log(nextArrive);
 	//console.log(typeof nextArrive);
-	var minAway = parseInt($('#minAway').val(), 10);
-	//console.log(minAway);
-	//console.log(typeof minAway);
+
 	var newTrain = {
 		name: trainName,
 		dest: destination,
-		next: nextArrive,
-		mins: minAway
+		freq: freqMin,
+		next: nextArrive
 	}
+
 
 	database.ref().push(newTrain);
 
+	console.log(newTrain.name);
+	console.log(newTrain.dest);
+	console.log(newTrain.freq);
+	console.log(newTrain.next);
 
-	var newRow = $('<tr>');
-	newRow.append("<td>"+trainName+"</td><td>"+destination+"</td><td>"+freqMin+"</td><td>"+nextArrive+"</td><td>"+minAway+"</td>")
-	newRow.append("<button class='btn btn-danger btn-sm'>X</button>");
-	$('tbody').append(newRow);
 
 	$('#trainName').val('');
 	$('#destination').val('');
 	$('#freqMin').val('');
 	$('#nextArrive').val('');
-	$('#minAway').val('');
+
+
 	return false;
   });
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
 	console.log(childSnapshot.val());
 
-	var 
+	var trainName = childSnapshot.val().name;
+	var destination = childSnapshot.val().dest;
+	var freqMin = childSnapshot.val().freq;
+	var nextArrive = childSnapshot.val().next;
+	//var now = moment();
+	//var minAway = 
+
+	$('#trainTable > tbody').append("<tr><td>"+trainName+"</td><td>"+destination+"</td><td>"+freqMin+"</td><td>"+nextArrive+"</td></tr>");
 
 });
